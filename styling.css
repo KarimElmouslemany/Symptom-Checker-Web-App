@@ -28,7 +28,7 @@ p {
   justify-content: center;
   background-color: red;
 }
-#signup_form{
+#signup_form {
   margin: auto;
   border-style: dashed;
   width: 30%;
@@ -40,12 +40,12 @@ p {
   gap: 10%;
 }
 
-#password{
+#password {
   padding-bottom: 5%;
 }
-#username{
+#username {
   padding-top: 10%;
 }
-#user_button{
+#user_button {
   align-items: center;
 }
