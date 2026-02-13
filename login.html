@@ -1,12 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>login</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="singin.js"></script>
+    <title>login page</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <a href="Sign_Up.html">sign up</a>
+      </ul>
+      <ul>
+        <a href="login.html">login</a>
+      </ul>
+    </nav>
+    <form id="login_form">
+      <div id="login_username">
+        <label for="username_input">username</label>
+        <input
+          id="username_input"
+          type="email"
+          placeholder="enter your  email"
+          required
+        />
+      </div>
+      <div id="login_password">
+        <label for="password_input">password</label>
+        <input
+          id="password_input"
+          type="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+      <button type="submit">Sign in</button>
+    </form>
+  </body>
 </html>
