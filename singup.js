@@ -12,6 +12,7 @@ form.addEventListener("submit", async (e) => {
   try {
     await createUserWithEmailAndPassword(auth, email, password);
     alert("Account created");
+      window.location.href = "login.html";
   } catch (err) {
     alert(err.message);
   }
