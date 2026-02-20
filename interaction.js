@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
   for (const letter of letters) {
     // loops through all the letters and creates
     outer_dives = document.createElement("div"); // create a div element
-    outer_dives.className = "outerdivs"; // assigns a class called outer
+    // outer_dives.className = "outerdivs"; // assigns a class called outer
+    outer_dives.className =
+    "rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"; // creates styling for the borders of the dives
     const heading = document.createElement("h2"); // creates a header tag and assigns it to heading variable.
     heading.textContent = letter; // adds the letters as a heading.
     outer_dives.append(heading); // added the heading tag to the div outer_dives
