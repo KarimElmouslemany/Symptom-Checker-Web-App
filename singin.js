@@ -7,8 +7,8 @@ import {
 const form = document.getElementById("login_form");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const username = document.getElementById("username_input").value.trim();
-  const password = document.getElementById("password_input").value;
+  const username = document.getElementById("login_username_input").value.trim();
+  const password = document.getElementById("login_password_input").value;
   try {
     await signInWithEmailAndPassword(auth, username, password);
     alert("valid user");
