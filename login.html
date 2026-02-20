@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="singin.js"></script>
+
     <link rel="stylesheet" href="styling.css" />
     <title>login page</title>
   </head>
@@ -17,7 +18,8 @@
       </ul>
     </nav>
     <form class="forms_login_signup" id="login_form">
-      <div id="login_username">
+      <h3 id="login_heading">Login</h3>
+      <div id="login_username" class="username">
         <label for="username_input">username</label>
         <input
           id="username_input"
@@ -26,7 +28,7 @@
           required
         />
       </div>
-      <div id="login_password">
+      <div id="login_password" class="password">
         <label for="password_input">password</label>
         <input
           id="password_input"

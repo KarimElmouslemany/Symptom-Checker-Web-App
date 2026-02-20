@@ -28,7 +28,16 @@ p {
   justify-content: center;
   background-color: red;
 }
-#signup_form {
+.password {
+  padding-bottom: 0%;
+}
+.username {
+  padding-top: 0%;
+}
+#user_button {
+  align-items: center;
+}
+.forms_login_signup {
   margin: auto;
   border-style: dashed;
   width: 30%;
@@ -40,12 +49,4 @@ p {
   gap: 10%;
 }
 
-#password {
-  padding-bottom: 5%;
-}
-#username {
-  padding-top: 10%;
-}
-#user_button {
-  align-items: center;
-}
+
