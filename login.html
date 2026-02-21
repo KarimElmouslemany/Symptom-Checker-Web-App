@@ -8,35 +8,47 @@
     <title>login page</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <a href="Sign_Up.html">sign up</a>
+    <nav class="flex justify-end w-full p-4">
+      <ul class="">
+        <li>
+          <a href="Sign_Up.html">sign up</a>
+        </li>
       </ul>
       <ul>
-        <a href="login.html">login</a>
+        <li class="px-4">
+          <a href="login.html">login</a>
+        </li>
       </ul>
     </nav>
-    <form class="forms_login_signup" id="login_form" class="">
-      <h3 id="login_heading">Login</h3>
-      <div id="login_username" class="username">
-        <label for="username_input">username</label>
-        <input
-          id="login_username_input"
-          type="email"
-          placeholder="enter your  email"
-          required
-        />
-      </div>
-      <div id="login_password" class="password">
-        <label for="password_input">password</label>
-        <input
-          id="login_password_input"
-          type="password"
-          placeholder="Enter your password"
-          required
-        />
-      </div>
-      <button type="submit">Sign in</button>
-    </form>
+    <main class="flex items-center justify-center">
+      <form class="forms_login_signup" id="login_form" class="max-w-md mx-auto">
+        <h3
+          id="login_heading"
+          class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-black py-2"
+        >
+          Login
+        </h3>
+        <div id="login_username" class="bg-blue-950 mx-auto">
+          <label for="username_input" class="text-white">username</label>
+          <input
+            id="login_username_input"
+            type="email"
+            placeholder="enter your  email"
+            required
+            class="w-2xs rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
+          />
+        </div>
+        <div id="login_password" class="password">
+          <label for="password_input">password</label>
+          <input
+            id="login_password_input"
+            type="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit">Sign in</button>
+      </form>
+    </main>
   </body>
 </html>
