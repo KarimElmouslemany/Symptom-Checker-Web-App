@@ -4,44 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="tailwind.css" />
-    <title>sign up</title>
     <script type="module" src="singup.js"></script>
+    <title>sign up</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <a href="Sign_Up.html">sign up</a>
+    <nav class="flex justify-end w-full p-4">
+      <ul class="">
+        <li>
+          <a href="Sign_Up.html">sign up</a>
+        </li>
       </ul>
       <ul>
-        <a href="login.html">login</a>
+        <li class="px-4">
+          <a href="login.html">login</a>
+        </li>
       </ul>
     </nav>
-    <form id="signup_form">
-      <h3 id="heading_singup">Sign Up</h3>
-      <div id="signup_username" class="username">
-        <label for="signup_email" class="input_lables"
-          >Enter your username</label
-        >
-        <input
-          id="signup_email_input"
-          type="email"
-          placeholder="enter your username"
-          required
-        />
-      </div>
 
-      <div class="password">
-        <label for="signup_password" class="input_lables"
-          >Enter your password</label
+    <main class="flex items-center justify-center">
+      <form id="signup_form" class="max-w-md mx-auto">
+        <h3
+          id="heading_singup"
+          class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-black py-2"
         >
-        <input
-          id="signup_password_input"
-          type="password"
-          placeholder="password"
-          required
-        />
-      </div>
-      <button id="user_button" type="submit">Enter</button>
-    </form>
+          Sign Up
+        </h3>
+        <div id="signup_username" class="bg-blue-950 mx-auto">
+          <label for="signup_email" class="text-white p-4">Username</label>
+          <input
+            id="signup_email_input"
+            type="email"
+            placeholder="Enter a valid email"
+            required
+            class="w-2xs rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
+          />
+        </div>
+
+        <div id="singup_password" class="bg-blue-950 mx-auto">
+          <label for="signup_password" class="text-white p-4">Password</label>
+          <input
+            id="signup_password_input"
+            type="password"
+            placeholder="Make a password"
+            required
+            class="w-2xs rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
+          />
+        </div>
+        <button
+          id="user_button"
+          type="submit"
+          class="block mx-auto mt-6 px-6 py-2 border-2 border-blue-900 text-black hover:bg-red-500 hover:text-white transition"
+        >
+          Enter
+        </button>
+      </form>
+    </main>
   </body>
 </html>
