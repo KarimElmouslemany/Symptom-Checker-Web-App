@@ -10,6 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
       symptoms_name: "cough",
       symptoms_description: "freeze",
     },
+    {
+      symptoms_name: "Arm pain",
+      symptoms_description:
+        "Elbow and arm pain is not usually a sign of anything serious. If it does not go away after a few weeks, see a GP.",
+    },
+    {
+      symptoms_name: "wolf",
+      symptoms_description: "hello there i am the king  "
+
+    }
   ];
   const number_of_in_dives = document.getElementById("symptoms1"); //gets the element by with a certain value
   const number_of_outer_dives = document.getElementById("outer_div"); //gets the element by with a certain value
@@ -20,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     outer_dives = document.createElement("div"); // create a div element
     // outer_dives.className = "outerdivs"; // assigns a class called outer
     outer_dives.className =
-    "rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"; // creates styling for the borders of the dives
+      "rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"; // creates styling for the borders of the dives
     const heading = document.createElement("h2"); // creates a header tag and assigns it to heading variable.
     heading.textContent = letter; // adds the letters as a heading.
     outer_dives.append(heading); // added the heading tag to the div outer_dives
@@ -32,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // loops through the object array
     const inner_div = document.createElement("div"); // creating outer div
     inner_div.className = "symptoms"; // gives the dives a class called symptoms
-    inner_div.innerHTML = `<h2>${symptoms[i].symptoms_name}</h2> <p>${symptoms[i].symptoms_description}<p>`; // adds the symptoms name and the description
+    inner_div.innerHTML = `<details><summary>${symptoms[i].symptoms_name}</summary><p>${symptoms[i].symptoms_description}</p></details>`; // adds the symptoms name and the description and Uses <details> to toggle the symptom description, with <summary> as the clickable heading. 
     const letter = symptoms[i].symptoms_name[0].toUpperCase();
     storage_outer_div[letter].append(inner_div); // looks up the correct outer dive and adds the symptoms and description to it.
   }
