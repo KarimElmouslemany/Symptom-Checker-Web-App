@@ -38,11 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
     storage_outer_div[letter] = outer_dives; // stores the div for later
   }
 
-  for (let i = 0; i < symptoms.length; i++) {
-    // loops through the object array
+  for (let i = 0; i < symptoms.length; i++) {// loops through the object array
     const inner_div = document.createElement("div"); // creating outer div
     inner_div.className = "symptoms"; // gives the dives a class called symptoms
-    inner_div.innerHTML = `<details><summary>${symptoms[i].symptoms_name}</summary><p>${symptoms[i].symptoms_description}</p></details>`; // adds the symptoms name and the description and Uses <details> to toggle the symptom description, with <summary> as the clickable heading. 
+    inner_div.innerHTML = `<details><summary>${symptoms[i].symptoms_name}</summary><h3>Description</h3><p>${symptoms[i].symptoms_description}</p><hr></details>`; // adds the symptoms name and the description and Uses <details> to toggle the symptom description, with <summary> as the clickable heading. 
     const letter = symptoms[i].symptoms_name[0].toUpperCase();
     storage_outer_div[letter].append(inner_div); // looks up the correct outer dive and adds the symptoms and description to it.
   }
