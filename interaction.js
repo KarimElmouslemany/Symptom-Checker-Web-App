@@ -4,22 +4,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const symptoms = [
     {
       symptoms_name: "fever",
-      symptoms_description: "run",
+      symptoms_causes: "run",
+      symptoms_diagnostic: "hello world this the",
+      does_and_dont: {
+        dos: [
+          "gently brush your teeth and gums at least twice a day for 2 minutes",
+          "do everything good",
+        ],
+        donts: ["donnt do bad things", "dont cause war"],
+      },
     },
     {
       symptoms_name: "cough",
-      symptoms_description: "freeze",
+      symptoms_causes: "freeze",
+      does_and_dont: {
+        dos: [
+          "gently brush your teeth and gums at least twice a day for 2 minutes",
+          "do everything good",
+        ],
+        donts: ["donnt do bad things", "dont cause war"],
+      },
     },
     {
       symptoms_name: "Arm pain",
-      symptoms_description:
+      symptoms_causes:
         "Elbow and arm pain is not usually a sign of anything serious. If it does not go away after a few weeks, see a GP.",
+      symptoms_diagnostic: "hello world this the",
+      does_and_dont: {
+        dos: [
+          "gently brush your teeth and gums at least twice a day for 2 minutes",
+          "do everything good",
+        ],
+        donts: ["donnt do bad things", "dont cause war"],
+      },
     },
     {
       symptoms_name: "wolf",
-      symptoms_description: "hello there i am the king  "
-
-    }
+      symptoms_causes: "hello there i am the king  ",
+      symptoms_diagnostic: "hello world this the",
+      does_and_dont: {
+        dos: [
+          "gently brush your teeth and gums at least twice a day for 2 minutes",
+          "do everything good",
+        ],
+        donts: ["donnt do bad things", "dont cause war"],
+      },
+    },
   ];
   const number_of_in_dives = document.getElementById("symptoms1"); //gets the element by with a certain value
   const number_of_outer_dives = document.getElementById("outer_div"); //gets the element by with a certain value
@@ -38,10 +68,32 @@ document.addEventListener("DOMContentLoaded", () => {
     storage_outer_div[letter] = outer_dives; // stores the div for later
   }
 
-  for (let i = 0; i < symptoms.length; i++) {// loops through the object array
+  for (let i = 0; i < symptoms.length; i++) {
+    // loops through the object array
     const inner_div = document.createElement("div"); // creating outer div
     inner_div.className = "symptoms"; // gives the dives a class called symptoms
-    inner_div.innerHTML = `<details><summary>${symptoms[i].symptoms_name}</summary><h3>Description</h3><p>${symptoms[i].symptoms_description}</p><hr></details>`; // adds the symptoms name and the description and Uses <details> to toggle the symptom description, with <summary> as the clickable heading. 
+    inner_div.innerHTML = `
+  <details class="mt-2">
+    <summary class="cursor-pointer font-medium text-slate-900">
+      ${symptoms[i].symptoms_name}
+    </summary>
+
+    <h3 class="mt-2 text-sm font-semibold text-slate-900">Description</h3>
+    <p class="mt-1 text-sm text-slate-700">${symptoms[i].symptoms_causes}</p>
+
+    <hr class="my-4 border-slate-200">
+
+    <h3 class="mt-3 text-sm font-semibold text-red-600">Don't</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+      ${symptoms[i].does_and_dont.donts.map((item) => `<li>${item}</li>`).join("")}
+    </ul>
+
+    <h3 class="mt-3 text-sm font-semibold text-green-600">Do</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+      ${symptoms[i].does_and_dont.dos.map((item) => `<li>${item}</li>`).join("")}
+    </ul>
+  </details>
+`; // adds the symptoms name and the description and Uses <details> to toggle the symptom description, with <summary> as the clickable heading.
     const letter = symptoms[i].symptoms_name[0].toUpperCase();
     storage_outer_div[letter].append(inner_div); // looks up the correct outer dive and adds the symptoms and description to it.
   }
