@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "https://int.api.service.nhs.uk/nhs-website-content/symptoms"; // url for where we are getting everything from
   const number_of_in_dives = document.getElementById("symptoms1"); //gets the element by with a certain value
   const storage_outer_div = {}; // An object used as a lookup table to store outer divs by letter (A–Z)
+
   for (const letter of letters) {
     // loops through all the letters and creates
     const outer_dives = document.createElement("div"); // create a div element
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     number_of_in_dives.append(outer_dives); // put the outerdivs to the page
     storage_outer_div[letter] = outer_dives; // stores the div for later
   }
+
   for (const letter of letters) {
     const response = await fetch(
       `https://corsproxy.io/?https://int.api.service.nhs.uk/nhs-website-content/symptoms/?category=${letter}`,
@@ -27,16 +29,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       continue;
     }
     const NHS_symptoms = data.significantLink;
-    console.log(data);
+
     for (const symptom of NHS_symptoms) {
+      const response2 = await fetch(
+        `https://corsproxy.io/?https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=${symptom.name}&rettype=topic`,
+      );
+      const text = await response2.text(); // MedlinePlus returns XML not JSON
+      const parser = new DOMParser(); // converts XML string into something JavaScript can search
+      const xml = parser.parseFromString(text, "text/xml");
+      let summary = xml.querySelector("full-summary"); // gets the full summary element
+
+      if (!summary) {
+        summary = "No description available "; // no description found
+      } else {
+        summary = summary.textContent; // gets the text inside the element
+      }
+
       const inner_div = document.createElement("div"); // creating an inner div
-      inner_div.textContent = symptom.name;
-      storage_outer_div[letter].append(inner_div);
       inner_div.innerHTML = `<details>
-      <summary>${symptom.name}</summary>
-      <p>${symptom.description}</p>
-      </details>`
+        <summary>${symptom.name}</summary>
+        <p>${summary}</p>
+      </details>`;
+      storage_outer_div[letter].append(inner_div);
     }
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // waits a sold 2 seconds before it sends a api request for every letter.
+    // await new Promise((resolve) => setTimeout(resolve, 2000)); // waits 2 seconds before it sends an api request for every letter.
   }
 });
