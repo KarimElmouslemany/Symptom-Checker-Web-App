@@ -16,10 +16,12 @@
     "tailwindcss": "^4.2.0"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@tailwindcss/cli": "^4.2.0",
     "@xmldom/xmldom": "^0.8.11",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "groq-sdk": "^1.1.1",
     "node-fetch": "^2.7.0"
   }
 }
