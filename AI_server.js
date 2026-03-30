@@ -14,9 +14,11 @@ router.post("/chat", async (req, res) => {
   try {
     const { message } = req.body; // takes the message the user has written
     const matchedSymptoms = []; // a array for all the matching symptoms
-    // find all symptoms that match the user's message by looping every single symptom and checks if the users message contains that symptom.
+    const all_users_input = message.split(" "); // splits the users message 
+    const users_words = all_users_input.filter(word=> word.length > 3); // filters the message that have the, and , see
+     // find all symptoms that match the user's message by looping every single symptom and checks if the users message contains that symptom.
     for (const symptom of allSymptoms) {
-      if (message.toLowerCase().includes(symptom.name.toLowerCase())) {
+      if (users_words.some(word => symptom.name.toLowerCase().includes(word.toLowerCase()))) { 
         matchedSymptoms.push(symptom);
       }
     }
