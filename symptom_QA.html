@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <script src="checker.js" defer></script>
+    <title>Symptom Checker</title>
+  </head>
+
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <nav class="flex justify-end gap-6 border-b bg-white px-6 py-4 text-sm">
+      <ul>
+        <a href="main.html" class="text-slate-600 hover:text-slate-900"
+          >A-Z List</a
+        >
+      </ul>
+      <ul>
+        <a href="login.html" class="text-slate-600 hover:text-slate-900"
+          >Sign Out</a
+        >
+      </ul>
+    </nav>
+
+    <div class="mx-auto max-w-2xl px-4 py-6">
+      <!-- Step 1: Body part selection -->
+      <div id="step1">
+        <h2 class="text-lg font-semibold mb-4">Where is your symptom?</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            onclick="selectBodyPart('head')"
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm cursor-pointer hover:border-blue-600"
+          >
+            Head
+          </div>
+          <div
+            onclick="selectBodyPart('chest')"
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm cursor-pointer hover:border-blue-600"
+          >
+            Chest
+          </div>
+          <div
+            onclick="selectBodyPart('stomach')"
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm cursor-pointer hover:border-blue-600"
+          >
+            Stomach
+          </div>
+          <div
+            onclick="selectBodyPart('back')"
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm cursor-pointer hover:border-blue-600"
+          >
+            Back
+          </div>
+          <div
+            onclick="selectBodyPart('arms')"
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm cursor-pointer hover:border-blue-600"
+          >
+            Arms
+          </div>
+          <div
+            onclick="selectBodyPart('legs')"
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm cursor-pointer hover:border-blue-600"
+          >
+            Legs
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Symptom questions -->
+      <div id="step2" class="hidden">
+        <h2 class="text-lg font-semibold mb-4">
+          Do you have any of these symptoms?
+        </h2>
+        <div id="questions" class="grid gap-4 sm:grid-cols-2"></div>
+        <button
+          onclick="getRecommendation()"
+          class="mt-6 bg-blue-950 text-white px-6 py-2 rounded-xl hover:bg-blue-900 transition"
+        >
+          Check Symptoms
+        </button>
+      </div>
+
+      <!-- Step 3: Recommendation -->
+      <div id="step3" class="hidden">
+        <h2 class="text-lg font-semibold mb-4">Our Recommendation</h2>
+        <div
+          id="result"
+          class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+        ></div>
+        <button
+          onclick="restart()"
+          class="mt-6 border border-slate-200 px-6 py-2 rounded-xl hover:bg-slate-100 transition"
+        >
+          Start Again
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
