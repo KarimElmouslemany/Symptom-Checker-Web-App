@@ -27,7 +27,7 @@ async function generate() {
       data.significantLink.map(async (symptom) => {
         // loops the nhs symptoms and runs the code inside.
         const response2 = await fetch(
-          // fetchs the symptom
+          // fetches the symptom description
           `https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=${symptom.name}&rettype=topic`,
         );
         const text = await response2.text(); // gets it as a text
@@ -44,8 +44,18 @@ async function generate() {
 
         const nhsname = symptom.name.toLowerCase(); // get the title(name) and makes it lowercase
         const medlinename = health_topic.getAttribute("title").toLowerCase(); // get the title and from title attribute inn health-topic tag
-        if (!medlinename.includes(nhsname) && !nhsname.includes(medlinename)) {
-          // compares the two apis symptoms tittles and if they dont match they skip it
+        const allwords = nhsname.split(" "); // split the title  into individual words
+        const nhswords = allwords.filter((word) => word.length > 3); // remove short words like and, see and the
+        let wordmatch = false;
+        for (const word of nhswords) {
+          if (medlinename.includes(word)) {
+            // check if the nhs title matches the medline  title and if it does makes word checker true
+            wordmatch = true;
+            break;
+          }
+        }
+        if (!wordmatch) {
+          //if the two apis  dont match they skip it and we use
           return;
         }
 
