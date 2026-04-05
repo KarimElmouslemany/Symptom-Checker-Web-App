@@ -10,7 +10,7 @@ const symptoms = JSON.parse(fs.readFileSync("symptoms.json")); // reads the symp
 
 // NHS symptoms route(get request)
 app.get("/symptoms", (req, res) => {
-  // when the front end calls this section grabs a letter and looks it up in the  symptoms object and send the array of that letter. and if nothing has been found itt send and empty array
+  // when the front end calls this section grabs a letter and looks it up in the  symptoms object and send the array of that letter. and if nothing has been found it send and empty array
   const category = req.query.category.toUpperCase();
   res.json(symptoms[category] || []);
 });
