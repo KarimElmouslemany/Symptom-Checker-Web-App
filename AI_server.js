@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const fs = require("fs"); // used for reading the symptom file
 const Groq = require("groq-sdk"); // Gemini SDK ( allows for Gemini to talk to code easier )
 
@@ -12,13 +11,17 @@ const allSymptoms = Object.values(symptoms).flat(); // grabs all the array and m
 router.post("/chat", async (req, res) => {
   // listens for a post request from the frontend(AI.js)
   try {
-    const { message } = req.body; // takes the message the user has written
+    const { user_message } = req.body; // takes the message the user has written
     const matchedSymptoms = []; // a array for all the matching symptoms
-    const all_users_input = message.split(" "); // splits the users message 
-    const users_words = all_users_input.filter(word=> word.length > 3); // filters the message that have the, and , see
-     // find all symptoms that match the user's message by looping every single symptom and checks if the users message contains that symptom.
+    const all_users_input = user_message.split(" "); // splits the users message
+    const users_words = all_users_input.filter((word) => word.length > 3); // filters the message that have the, and , see
+    // find all symptoms that match the user's message by looping every single symptom and checks if the users message contains that symptom.
     for (const symptom of allSymptoms) {
-      if (users_words.some(word => symptom.name.toLowerCase().includes(word.toLowerCase()))) { 
+      if (
+        users_words.some((word) =>
+          symptom.name.toLowerCase().includes(word.toLowerCase()),
+        )
+      ) {
         matchedSymptoms.push(symptom);
       }
     }
@@ -56,7 +59,7 @@ router.post("/chat", async (req, res) => {
         },
         {
           role: "user",
-          content: message,
+          content: user_message,
         },
       ],
     });
