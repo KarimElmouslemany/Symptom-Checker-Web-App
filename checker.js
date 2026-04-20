@@ -7,6 +7,10 @@ const severity = [];
 const question_answers = [];
 const display = document.getElementById("questions");
 const display_results = document.getElementById("result");
+const hidden_step_2 = document.getElementById("step2");
+const hidden_step_3 = document.getElementById("step3");
+const restart_button = document.getElementById("restart_button");
+
 let checker = 0;
 let checker_answer = 0;
 let selected_peace = false;
@@ -48,21 +52,33 @@ const questions = {
 function selectBodyPart(part) {
   userAnswers.bodyPart = part;
   if (userAnswers.bodyPart == "chest") {
+    hidden_step_2.classList.remove("hidden");
+    restart_button.classList.remove("hidden");
     chest();
   }
   if (userAnswers.bodyPart == "stomach") {
+    hidden_step_2.classList.remove("hidden");
+    restart_button.classList.remove("hidden");
     stomach();
   }
   if (userAnswers.bodyPart == "back") {
+    restart_button.classList.remove("hidden");
+    hidden_step_2.classList.remove("hidden");
     Back();
   }
   if (userAnswers.bodyPart == "head") {
+    hidden_step_2.classList.remove("hidden");
+    restart_button.classList.remove("hidden");
     Head();
   }
   if (userAnswers.bodyPart == "legs") {
+    hidden_step_2.classList.remove("hidden");
+    restart_button.classList.remove("hidden");
     Legs();
   }
   if (userAnswers.bodyPart == "arms") {
+    hidden_step_2.classList.remove("hidden");
+    restart_button.classList.remove("hidden");
     Arms();
   }
 }
@@ -71,12 +87,11 @@ function getRecommendation() {
   // console.log("getting recommendation for", userAnswers.bodyPart);
   const part = userAnswers.bodyPart;
   for (let i = 0; i < questions[part].length; i++) {
-    const selected = document.querySelector(
-      `input[name="q${i}"]:checked`,
-    ).value;
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+
     if (selected != null) {
       question_answers.push({
-        answer: selected,
+        answer: selected.value,
         severity: questions[part][i].severity,
       });
     } else {
@@ -85,6 +100,7 @@ function getRecommendation() {
   }
   checker_answer = recommendation_calc();
   console.log(checker_answer);
+  hidden_step_3.classList.remove("hidden");
   if (checker_answer == 0) {
     display_results.innerHTML = `
     <div class="rounded-2xl p-4" style="border: 4px solid green;">
@@ -118,6 +134,10 @@ function getRecommendation() {
 }
 
 function restart() {
+  console.log("restart function executed");
+  hidden_step_2.classList.add("hidden");
+  hidden_step_3.classList.add("hidden");
+  restart_button.classList.add("hidden");
   question_answers.length = 0;
   checker = 0;
   checker_answer = 0;
@@ -176,7 +196,7 @@ function chest() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.chest.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200 bg-black p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.chest[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -284,6 +304,7 @@ function Arms() {
     recommendation_calc();
   }
 }
+
 selectBodyPart();
 getRecommendation();
 restart();
