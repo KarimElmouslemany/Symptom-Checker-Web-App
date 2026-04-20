@@ -6,6 +6,7 @@ const userAnswers = {
 const severity = [];
 const question_answers = [];
 const display = document.getElementById("questions");
+const display_results = document.getElementById("result");
 let checker = 0;
 let checker_answer = 0;
 let selected_peace = false;
@@ -85,16 +86,32 @@ function getRecommendation() {
   checker_answer = recommendation_calc();
   console.log(checker_answer);
   if (checker_answer == 0) {
-    console.log("monitor symptoms  and if you feel worse visit a GP");
+    display_results.innerHTML = `
+    <div class="rounded-2xl p-4" style="border: 4px solid green;">
+      <h3 class="text-black font-bold text-lg">Monitor Your Symptoms</h3>
+      <p class="text-black mt-2">Your symptoms appear mild. Rest and monitor how you feel over the next few days.</p>
+    </div>`;
   }
   if (checker_answer >= 7 && checker_answer <= 10) {
-    console.log("call 999");
+    display_results.innerHTML = `
+    <div class="rounded-2xl p-4" style="border: 4px solid red;">
+      <h3 class="text-black font-bold text-lg">Call 999 Immediately!</h3>
+      <p class="text-black mt-2">Your symptoms suggest a serious emergency. Call 999 or go to A&E right away.</p>
+    </div>`;
   }
   if (checker_answer >= 4 && checker_answer <= 6) {
-    console.log("call 111");
+    display_results.innerHTML = `
+    <div class="rounded-2xl p-4" style="border: 4px solid orange;">
+      <h3 class="text-black font-bold text-lg">Call 111</h3>
+      <p class="text-black mt-2">Your symptoms need medical attention. Call 111 or visit an urgent care centre.</p>
+    </div>`;
   }
   if (checker_answer >= 1 && checker_answer <= 3) {
-    console.log("see a GP");
+    display_results.innerHTML = `
+    <div class="rounded-2xl p-4" style="border: 4px solid blue;">
+      <h3 class="text-black font-bold text-lg">See Your GP</h3>
+      <p class="text-black mt-2">Your symptoms suggest you should book an appointment with your GP to get further clarification on your symptoms.</p>
+    </div>`;
   }
 
   console.log(question_answers);
@@ -107,6 +124,7 @@ function restart() {
   selected_peace = false;
   console.log("restarting");
   display.innerHTML = ``;
+  display_results.innerHTML = ``;
 }
 
 function recommendation_calc() {
