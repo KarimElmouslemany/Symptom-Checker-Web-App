@@ -2,9 +2,9 @@ import { auth } from "./Firebase.js"; // import from the firebase.js file
 import { signOut} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"; // importing the firebase signout function
 import {onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"; // importing the firebase onAuthStateChanged function
 document.addEventListener("DOMContentLoaded", () => {
-  const signOut_button = document.getElementsByClassName("singout_button") //gets the class element 
-  for(let i = 0; i<signOut_button.length; i++){
-        signOut_button[i].addEventListener("click", signout);
+  const signOut_button = document.getElementsByClassName("singout_button") //gets all the element with the class name singout_button. 
+  for(let i = 0; i<signOut_button.length; i++){ // loops through the class element and attaches the click listener to each one.
+        signOut_button[i].addEventListener("click", signout); 
   }
 
 });
