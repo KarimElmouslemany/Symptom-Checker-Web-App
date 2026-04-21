@@ -28,7 +28,7 @@ async function display_symptoms(
   for (const symptom of data) {
     const symptom_info_display = document.createElement("ul");
     const content = document.createElement("li");
-    symptom_info_display.appendChild(list);
+    symptom_info_display.appendChild(content);
     content.className =
       "rounded-2xl border border-slate-200 bg-white p-4 shadow-sm";
     content.innerHTML = `<details>
