@@ -1,13 +1,16 @@
 const chat_message = document.getElementById("chat_messages");
 
-async function toggleChat() {
+function toggleChat() {
   const chatbot = document.getElementById("chat_box");
-  if (chatbot.hidden == false) {
-    chatbot.hidden = true;
-    console.log("display the box king kong");
+  const toggleButton = document.getElementById("chat_toggle");
+  if (chatbot.hidden == true) {
+     chatbot.hidden = false;
+   toggleButton.setAttribute("aria-expanded", "true");
+    toggleButton.setAttribute("aria-label", "Close symptom assistant chat");
   } else {
-    chatbot.hidden = false;
-    console.log("execute the box king kong");
+    chatbot.hidden = true;
+    toggleButton.setAttribute("aria-expanded", "false");
+    toggleButton.setAttribute("aria-label", "Open symptom assistant chat");
   }
 }
 
@@ -16,7 +19,7 @@ const chat_button = document.getElementById("chat_send").addEventListener("click
     const remote_welcome_message = document.getElementById("chat_welcome").hidden = true;
     sendMessage(users_input);
   });
-async function sendMessage(users_input) {
+function sendMessage(users_input) {
   if (users_input.trim() == "") {
     alert("enter a message please");
     return;
@@ -26,7 +29,7 @@ async function sendMessage(users_input) {
   }
 }
 
-async function addMessage_user(user_message) {
+function addMessage_user(user_message) {
   const user_display_message = document.createElement("div");
   user_display_message.textContent = user_message;
   user_display_message.className =
@@ -37,7 +40,7 @@ async function addMessage_user(user_message) {
   botsend(user_message);
 }
 
-async function addMessage_bot(bots_reply) {
+function addMessage_bot(bots_reply) {
   console.log(bots_reply);
   let checker_for_replying = true;
   const bot_message = document.createElement("div");
@@ -74,7 +77,7 @@ async function botsend(user_message) {
     addMessage_bot("Sorry i can not answer that");
   }
 }
-async function removeLastMessage() {
+function removeLastMessage() {
   chat_message.removeChild(chat_message.lastChild);
 }
 

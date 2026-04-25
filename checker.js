@@ -10,7 +10,6 @@ const display_results = document.getElementById("result");
 const hidden_step_2 = document.getElementById("step2");
 const hidden_step_3 = document.getElementById("step3");
 const restart_button = document.getElementById("restart_button");
-
 let checker = 0;
 let checker_answer = 0;
 let selected_peace = false;
@@ -196,7 +195,7 @@ function chest() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.chest.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-black p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200w bg-white p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.chest[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -216,7 +215,7 @@ function stomach() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.stomach.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200w bg-white p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.stomach[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -236,7 +235,7 @@ function Back() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.back.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200w bg-white p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.back[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -254,7 +253,7 @@ function Head() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.head.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200w bg-white p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.head[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -272,7 +271,7 @@ function Legs() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.legs.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200w bg-white p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.legs[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -290,7 +289,7 @@ function Arms() {
   if (selected_peace == false) {
     for (let i = 0; i < questions.arms.length; i++) {
       display.innerHTML += `
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div class="rounded-2xl border border-slate-200w bg-white p-4 shadow-sm">
         <p class="font-medium mb-3">${questions.arms[i].question}</p>
         <div class="flex gap-4">
           <label><input type="radio" id="chest_q${i}_yes" name="q${i}" value="yes"> Yes</label>
@@ -304,7 +303,7 @@ function Arms() {
     recommendation_calc();
   }
 }
-
+ 
 selectBodyPart();
 getRecommendation();
 restart();
