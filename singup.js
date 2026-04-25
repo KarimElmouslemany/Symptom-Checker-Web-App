@@ -53,9 +53,25 @@ function handling_verification(
       "password filed is empty please enter a valid password";
     return (verification_in_function = false);
   }
-  if (password.length < 6) {
-    console.log("password length is less than 6 characters");
-    error_message.textContent = "password length is less than 6 characters";
+  if (password.length < 8 || password.length > 12) {
+    console.log("password length must be between 8-12");
+    error_message.textContent = "password length must be between 8-12";
+    return (verification_in_function = false);
+  }
+  if (!/[A-Z]/.test(password)) {
+    error_message.textContent = "Password must contain an uppercase letter";
+    return (verification_in_function = false);
+  }
+  if (!/[a-z]/.test(password)) {
+    error_message.textContent = "Password must contain a lowercase letter";
+    return (verification_in_function = false);
+  }
+  if (!/[0-9]/.test(password)) {
+    error_message.textContent = "Password must contain a number";
+    return (verification_in_function = false);
+  }
+  if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password)) {
+    error_message.textContent = "Password must contain a special character";
     return (verification_in_function = false);
   }
   if (EmailForValidation.validity.typeMismatch) {
