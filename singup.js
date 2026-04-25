@@ -24,7 +24,7 @@ form.addEventListener("submit", async (e) => {
     if (verification == true) {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("Account created");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     }
   } catch (err) {
     // console.error("Firebase signup error:", err);

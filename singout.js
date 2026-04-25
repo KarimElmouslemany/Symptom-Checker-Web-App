@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 onAuthStateChanged(auth, (user) => {
   if (user === null) {
     // if user is null (so no one has logged in )
-    window.location.href = "login.html"; // goes to the login page
+    window.location.href = "index.html"; // goes to the login page
   }
 });
 async function signout() {
   try {
     await signOut(auth); // sing out users ( does: Ends the user session ,Clears authentication state ,Triggers onAuthStateChanged Sets user = null).
-    window.location.href = "login.html"; // sends user to login page
+    window.location.href = "index.html"; // sends user to login page
   } catch (err) {
     console.error("Sign out failed:", err);
     alert("Something went wrong signing out. Please try again.");
