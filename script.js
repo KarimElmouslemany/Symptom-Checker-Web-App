@@ -1,7 +1,8 @@
 const fetch = require("node-fetch"); // import used to make calls to APIs
 const fs = require("fs"); // allows use to save stuff to the file
 const { DOMParser } = require("@xmldom/xmldom");
-const API_KEY = "Rkjfe4Pk6TpvJuvF1TyZgjAJh3BZJp4t"; // api key
+require('dotenv').config();
+const API_KEY = process.env.NHS_API_KEY; // api key
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const results = {}; // a object that holds all the results for each letter
 

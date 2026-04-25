@@ -1,10 +1,11 @@
 const express = require("express");
+require('dotenv').config();
 const fs = require("fs"); // used for reading the symptom file
 const Groq = require("groq-sdk"); // Gemini SDK ( allows for Gemini to talk to code easier )
 
 const router = express.Router(); // used to connect the groq server to the main server(sever.js)
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.GROQ_API_KEY,
 }); //creates a groq client using the API key
 const symptoms = JSON.parse(fs.readFileSync("symptoms.json")); // reads the symptom.js file and turn it into a javascript object
 const allSymptoms = Object.values(symptoms).flat(); // grabs all the array and mergers them into one signal array
