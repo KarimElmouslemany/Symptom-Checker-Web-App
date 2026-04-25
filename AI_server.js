@@ -1,5 +1,5 @@
+require("dotenv").config();
 const express = require("express");
-require('dotenv').config();
 const fs = require("fs"); // used for reading the symptom file
 const Groq = require("groq-sdk"); // Gemini SDK ( allows for Gemini to talk to code easier )
 

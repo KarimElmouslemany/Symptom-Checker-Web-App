@@ -1,7 +1,7 @@
+require("dotenv").config();
 const fetch = require("node-fetch"); // import used to make calls to APIs
 const fs = require("fs"); // allows use to save stuff to the file
 const { DOMParser } = require("@xmldom/xmldom");
-require('dotenv').config();
 const API_KEY = process.env.NHS_API_KEY; // api key
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const results = {}; // a object that holds all the results for each letter
@@ -57,7 +57,7 @@ async function script() {
       console.log(results);
     }
   }
- 
+
   fs.writeFileSync("symptoms.json", JSON.stringify(results, null, 2)); // saves everything to the json file symptoms.json
   console.log("Done! symptoms.json created.");
 }
