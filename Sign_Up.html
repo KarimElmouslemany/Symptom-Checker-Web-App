@@ -1,56 +1,105 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="tailwind.css" />
-    <script type="module" src="singup.js"></script>
+    <script type="module" src="singup.js" defer></script>
     <title>Sign Up</title>
   </head>
   <body>
-    <nav class="flex justify-end w-full p-4">
-      <ul class="">
-        <li>
-          <a href="Sign_Up.html">sign up</a>
-        </li>
-      </ul>
-      <ul>
+    <nav class="flex justify-end w-full p-4" aria-label="Main navigation">
+      <ul class="flex gap-6">
         <li class="px-4">
-          <a href="login.html">login</a>
+          <a
+            class="text-black underline hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-800 rounded px-1"
+            href="login.html"
+            >Login
+          </a>
         </li>
       </ul>
     </nav>
     <main class="flex items-center justify-center">
-      <form id="signup_form" class="max-w-md mx-auto">
-        <h3
+      <form
+        id="signup_form"
+        novalidate
+        class="max-w-md mx-auto flex flex-col items-center"
+      >
+        <h1
           id="heading_singup"
           class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-black py-2"
         >
           Sign Up
-        </h3>
-        <div id="signup_username" class="bg-blue-950 mx-auto">
-          <label for="signup_email" class="text-white p-4">Username</label>
+        </h1>
+        <div
+          id="signup_username"
+          class="bg-blue-950 mx-auto px-4 flex items-center gap-2"
+        >
+          <label
+            for="signup_email_input"
+            class="text-white p-4 w-48 whitespace-nowrap"
+            >Email address</label
+          >
           <input
             id="signup_email_input"
             type="email"
+            autocomplete="email"
             placeholder="Enter a valid Email"
+            aria-required="true"
             required
-            class="w-2xs rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
+            class="w-2xs rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-2 border-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
           />
         </div>
-        <div id="singup_password" class="bg-blue-950 mx-auto py-4">
-          <label for="signup_password" class="text-white p-4"> Password</label>
+        <div
+          id="singup_password"
+          class="bg-blue-950 mx-auto px-4 flex items-center gap-2"
+        >
+          <label
+            for="signup_password_input"
+            class="text-white p-4 w-48 whitespace-nowrap"
+            >Password</label
+          >
           <input
             id="signup_password_input"
             type="password"
-            placeholder="Make a password"
+            placeholder="Enter a password"
+            autocomplete="new-password"
+            aria-required="true"
+            minlength="6"
             required
-            class="w-2xs rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
+            class="w-2xs rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-2 border-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
           />
         </div>
+        <div
+          id="signup_password_confirm"
+          class="bg-blue-950 mx-auto px-4 flex items-center gap-2"
+        >
+          <label
+            for="signup_password_confirm_input"
+            class="text-white p-4 w-48 whitespace-nowrap"
+          >
+            Confirm Password
+          </label>
+          <input
+            id="signup_password_confirm_input"
+            name="password_confirm"
+            type="password"
+            placeholder="Re-enter your password"
+            autocomplete="new-password"
+            minlength="6"
+            required
+            aria-required="true"
+            class="w-2xs rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-2 border-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6"
+          />
+        </div>
+        <p
+          id="error_display"
+          class="text-red-700 font-semibold text-center mt-2 hidden"
+          role="alert"
+        ></p>
         <button
           type="submit"
-          class="block mx-auto mt-6 px-6 py-2 border-2 border-blue-900 text-black hover:bg-red-500 hover:text-white transition"
+          class="block mx-auto mt-6 px-6 py-2 border-2 border-blue-900 text-black hover:bg-blue-800 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800"
         >
           Sign Up
         </button>
