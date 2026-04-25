@@ -63,7 +63,7 @@ function addMessage_bot(bots_reply) {
 
 async function botsend(user_message) {
   try {
-    const response = await fetch("http://localhost:3000/chat", {
+    const response = await fetch("/chat", {
       // sends a post request to the Ai_server.js and waits for its response
       method: "POST",
       headers: { "Content-Type": "application/json" },
