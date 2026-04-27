@@ -59,7 +59,8 @@ router.post("/chat", async (req, res) => {
           2. Give recommendations on what they should do
           3. Advise whether they should see a doctor or not
           
-          Do not use any medical knowledge outside of what is provided above.`,
+          Do not use any medical knowledge outside of what is provided above.
+          Do not use markdown formatting, bullet points or asterisks in your response. Write in plain paragraphs only.`,
         },
         {
           role: "user",
