@@ -27,7 +27,6 @@ form.addEventListener("submit", async (e) => {
       window.location.href = "index.html";
     }
   } catch (err) {
-    // console.error("Firebase signup error:", err);
     error_handling(err, error_message);
   }
 });
