@@ -19,25 +19,25 @@ async function script() {
     if (!data.significantLink) { // if there is no title skip
       continue;
     }
-    for (const symptoms of data.significantLink) {
+    for (const symptoms of data.significantLink) { 
       let wordmatch = false;
       const response2 = await fetch(
         // fetches the symptom description meadlinePlus
         `https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=${symptoms.name}&rettype=topic`,
       );
-      const text = await response2.text(); // this is text
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(text, "text/xml");
-      const health_topic = xml.getElementsByTagName("health-topic")[0];
-      const summary = xml.getElementsByTagName("full-summary")[0];
+      const text = await response2.text(); // get the response body as plain text
+      const parser = new DOMParser(); // create an XML parser so we can read the response
+      const xml = parser.parseFromString(text, "text/xml"); // parse the text into an XML document we can query
+      const health_topic = xml.getElementsByTagName("health-topic")[0]; // grab the first <health-topic> element that has the info on the symptom
+      const summary = xml.getElementsByTagName("full-summary")[0];  // grab the first <full-summary> element that has the description of the symptom
       if (health_topic == null || summary == null) {
         // if the elements has no title or description it skips it
         continue;
       }
       const nhsname = symptoms.name.toLowerCase();
-      const medline_title = health_topic.getAttribute("title").toLowerCase();
+      const medline_title = health_topic.getAttribute("title").toLowerCase(); // gets the title from the health topic element
       const allwords = nhsname.split(" "); // split the title  into individual words
-      const nhswords = allwords.filter((word) => word.length > 3);
+      const nhswords = allwords.filter((word) => word.length > 3); // filter words that are less than 3 
 
       for (const word of nhswords) {
         if (medline_title.includes(word)) { // check if any of the nhs title matches the meadlinePlus title

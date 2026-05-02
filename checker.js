@@ -2,7 +2,7 @@
 const userAnswers = {
   bodyPart: null,
 };
-// questions for each body part
+
 const severity = [];
 const question_answers = [];
 const display = document.getElementById("questions");
@@ -13,7 +13,7 @@ const restart_button = document.getElementById("restart_button");
 let checker = 0;
 let checker_answer = 0;
 let selected_peace = false;
-const questions = { // questions for the user
+const questions = { // questions for each body part
   head: [
     { question: "Do you have a headache?", severity: "low" },
     { question: "Do you have a fever?", severity: "medium" },
