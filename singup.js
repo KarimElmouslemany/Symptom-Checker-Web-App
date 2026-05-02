@@ -93,7 +93,7 @@ function handling_verification( // handles the verification of users input
     return (verification_in_function = true);
   }
 }
-function error_handling(error, error_message) {
+function error_handling(error, error_message) { // used to displayed firebase errors in a users friendly way
   error_message.classList.remove("hidden");
   if (error.code == "auth/email-already-in-use") {
     error_message.textContent =
