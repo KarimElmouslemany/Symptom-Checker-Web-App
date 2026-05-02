@@ -1,37 +1,35 @@
-import { auth } from "./Firebase.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { auth } from "./Firebase.js"; // Imports the auth from the  Firebase file it self 
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"; // Imports the Firebase function used to sign in users with email and password
 
-const form = document.getElementById("signup_form");
+const form = document.getElementById("signup_form"); // Gets the signup form from the HTML page
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async (e) => {  // Runs this function when the user submits the signup form
   e.preventDefault();
   let verification = false;
-  const email = document.getElementById("signup_email_input").value.trim();
-  const password = document.getElementById("signup_password_input").value;
-  const EmailForValidation = document.getElementById("signup_email_input");
-  const error_message = document.getElementById("error_display");
-  const confirm_password = document.getElementById(
-    "signup_password_confirm_input",
-  ).value;
+  const email = document.getElementById("signup_email_input").value.trim(); // gets the users email
+  const password = document.getElementById("signup_password_input").value; // gets the users password
+  const EmailForValidation = document.getElementById("signup_email_input"); // gets the email of the user but this one is used for validation of the email
+  const error_message = document.getElementById("error_display"); // gets the id of the where the errors will be displayed 
+  const confirm_password = document.getElementById("signup_password_confirm_input").value; // gets the id of confirm password input
   try {
-    verification = handling_verification(
+    verification = handling_verification( // checks for user has inputted the correct details 
       email,
       password,
       error_message,
       EmailForValidation,
       confirm_password,
     );
-    if (verification == true) {
-      await createUserWithEmailAndPassword(auth, email, password);
+    if (verification == true) { // if verification came back correct send the users details to firebase
+      await createUserWithEmailAndPassword(auth, email, password); // awaits for a response that users account has been created on the firebase system
       alert("Account created");
-      window.location.href = "index.html";
+      window.location.href = "index.html"; // goes to the login page 
     }
   } catch (err) {
-    error_handling(err, error_message);
+    error_handling(err, error_message); // function used to handle firebase errors so that it can be displayed in a user friendly way
   }
 });
 
-function handling_verification(
+function handling_verification( // handles the verification of users input
   username,
   password,
   error_message,

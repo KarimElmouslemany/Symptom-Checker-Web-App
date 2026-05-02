@@ -9,7 +9,7 @@ const groq = new Groq({
 }); //creates a groq client using the API key
 
 const symptoms = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "symptoms.json"), "utf8")
+  fs.readFileSync(path.join(__dirname, "symptoms.json"), "utf8"),
 ); // reads the symptom.js file and turn it into a javascript object and uses __dirname to correctly locate symptoms.json in both local and deployed environments.
 const allSymptoms = Object.values(symptoms).flat(); // grabs all the array and mergers them into one signal array
 router.post("/chat", async (req, res) => {

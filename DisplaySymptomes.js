@@ -1,8 +1,8 @@
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // all the letters
 document.addEventListener("DOMContentLoaded", async () => {
   const adding_to_main_page = document.getElementById("Display_info");
-  const response = await fetch("./symptoms.json");
-  const data = await response.json();
+  const response = await fetch("./symptoms.json"); // gets the json file of where all  the symptoms are stored
+  const data = await response.json(); // makes it into json format so that it can be read by javascript
   display_letters(data, adding_to_main_page);
 });
 

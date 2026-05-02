@@ -1,19 +1,19 @@
-import { auth } from "./Firebase.js";
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { auth } from "./Firebase.js"; // Imports the auth from the  Firebase file it self 
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"; // Imports the Firebase function used to sign in users with email and password
 
-const form = document.getElementById("login_form");
-form.addEventListener("submit", async (e) => {
+const form = document.getElementById("login_form"); // Gets the login form from the HTML page
+form.addEventListener("submit", async (e) => { // Runs this function when the user submits the login form
   let verification = null;
   e.preventDefault();
-  const username = document.getElementById("login_username_input").value;
-  const username_for_validation = document.getElementById("login_username_input");
-  const password = document.getElementById("login_password_input").value;
-  const error_message = document.getElementById("error_display");
+  const username = document.getElementById("login_username_input").value;  // Gets the email entered by the user
+  const username_for_validation = document.getElementById("login_username_input"); // Gets the actual email input element so HTML validation can be checked
+  const password = document.getElementById("login_password_input").value;  // Gets the password entered by the user
+  const error_message = document.getElementById("error_display"); // Gets the error message area from the HTML page
   try {
-    verification = handling_verification(username,password,error_message,username_for_validation);
+    verification = handling_verification(username,password,error_message,username_for_validation); // checks for validation
     console.log("verification is ", verification);
     if (verification == true) {
-      await signInWithEmailAndPassword(auth, username, password);
+      await signInWithEmailAndPassword(auth, username, password); // waits to hear back from firebase
       window.location.href = "main.html";
     } else {
       console.log("the error came from handling_verification function");
@@ -24,10 +24,8 @@ form.addEventListener("submit", async (e) => {
     
   }
 });
-// checker users passwords length
-// check if users email has an @ symbols and gmail,yahoo and stuff
-// display errors correctly to users
-function handling_verification(
+
+function handling_verification( // checks for verification to make sure user has entered the correct info before sending it to firebase
   username,
   password,
   error_message,
@@ -67,7 +65,7 @@ function handling_verification(
   }
 }
 
-function error_handling(error, error_message) {
+function error_handling(error, error_message) { // check error codes and presents them in a friendly way for the user
   error_message.classList.remove("hidden");
   if (error.code === "auth/invalid-credential") {
     error_message.textContent = "Email or password is wrong";

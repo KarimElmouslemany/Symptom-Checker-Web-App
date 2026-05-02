@@ -16,7 +16,7 @@ async function script() {
       { headers: { apikey: API_KEY } },
     );
     const data = await response.json();
-    if (!data.significantLink) {
+    if (!data.significantLink) { // if there is no title skip
       continue;
     }
     for (const symptoms of data.significantLink) {
@@ -40,7 +40,7 @@ async function script() {
       const nhswords = allwords.filter((word) => word.length > 3);
 
       for (const word of nhswords) {
-        if (medline_title.includes(word)) {
+        if (medline_title.includes(word)) { // check if any of the nhs title matches the meadlinePlus title
           wordmatch = true;
           break;
         }
