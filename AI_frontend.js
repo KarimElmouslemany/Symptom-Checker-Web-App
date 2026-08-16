@@ -72,6 +72,8 @@ async function botsend(user_message) {
     removeLastMessage(); // removes the last message that was sent 
     addMessage_bot(data.reply); // sends it to the function that adds the bots reply to the system
   } catch (err) {
+    console.log("bot error", err);
+     removeLastMessage();
     addMessage_bot("Sorry i can not answer that"); // adds this message in the chat if there is an error
   }
 }
