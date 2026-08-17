@@ -1,23 +1,79 @@
 # Symptom-Checker-Web-App
 
-Instructions for deployed version: 
-to run the deployed version of the web app go to this url: https://symptom-checker-karim-22562295.onrender.com and you will be able to see the deployed version.
-(please undrstand that this in on the free version of render so you will need to wait about 30 secondes before the website is online)
-also if you whish to just get to the main page just login in with this:
+A full-stack web application that helps users explore symptoms and receive relevant guidance through an AI-powered chatbot.
 
-email: user1@gmail.com
+The application combines symptom information from the NHS and MedlinePlus, uses Firebase Authentication for user accounts, and integrates the Groq API to generate conversational responses.
 
-password: 123456
+## Live Application
+[View the Symptom Checker](https://symptom-checker-karim-22562295.onrender.com)
 
-	
-if you want to creat an account just click to the singup link in the top right corner of the screen. 
+## Features
+User registration and login with Firebase Authentication
+Browse symptom information
+Retrieves symptom names from NHS data
+Retrieves symptom descriptions from MedlinePlus
+Cleans and stores symptom data in JSON
+AI-powered symptom chatbot
+Processes relevant symptom information before sending requests to the AI model
+Input validation for user accounts
+Weighted symptom scoring system
+Provides guidance based on symptom severity
+Deployed as a live web application
+Technologies
+HTML
+CSS / Tailwind CSS
+JavaScript
+Node.js
+Express.js
+Firebase Authentication
+Groq API
+NHS API
+MedlinePlus API
+JSON
+Render
+Git / GitHub
 
+# ⚒️ How It Works
 
+The application uses a Node.js script to retrieve symptom information from external healthcare APIs.
 
+Symptom names are collected from NHS data while descriptions are retrieved from MedlinePlus. The information is cleaned and stored in JSON so it can be used consistently throughout the application.
 
+The chatbot backend is built with Express.js. When a user enters a health-related message, the server identifies relevant symptom information and sends the appropriate context to an AI model through the Groq API.
 
-Instructions for running locally: 
-1. Install dependencies — open a terminal in the project folder and run:
+The generated response is then returned to the frontend and displayed to the user.
+
+Symptom Scoring
+
+The application also includes a weighted scoring system that evaluates user answers and symptom severity.
+
+The score is used to help guide users towards an appropriate next action based on the information provided.
+
+## Authentication
+
+Firebase Authentication is used to provide:
+
+User registration
+User login
+Input validation
+Authentication management
+Project Motivation
+
+I created this project to develop my full-stack web development skills while exploring how generative AI can be integrated into a practical application.
+
+The project gave me experience working with external APIs, backend development, authentication, data processing, AI integration and application deployment.
+
+# Running the Project
+
+Clone the repository:
+
+git clone <repository-url>
+
+Navigate into the project:
+
+cd Symptom-Checker-Web-App
+
+Install the dependencies  — open a terminal in the project folder and run:
 
    npm install
 
@@ -32,5 +88,18 @@ This starts server.js and all other server-related logic.
 
 
 4. then go to the  browser and past this http://localhost:3000/index.html this will take you to the login page
-	
-	
+
+## ✅ Completed
+
+The core functionality of the application is complete, including symptom browsing, user authentication, symptom scoring and the AI-powered chatbot. Further updates may be made for maintenance, small improvements or model changes.
+
+## Disclaimer
+
+This application is a personal software development project and is not intended to provide a medical diagnosis or replace professional medical advice.
+
+Author
+
+Karim Elmouslemany
+
+Computer Science Graduate
+[LinkedIn](https://www.linkedin.com/in/karimelmouslemany/)
