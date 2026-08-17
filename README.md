@@ -56,11 +56,12 @@ The score is used to help guide users towards an appropriate next action based o
 
 Firebase Authentication is used to provide:
 
-User registration
-User login
-Input validation
-Authentication management
-Project Motivation
+1. User registration
+2. User login
+3. Input validation
+4. Authentication management
+
+## Project Motivation
 
 I created this project to develop my full-stack web development skills while exploring how generative AI can be integrated into a practical application.
 
