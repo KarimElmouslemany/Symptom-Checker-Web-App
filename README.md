@@ -1,6 +1,6 @@
 # Symptom-Checker-Web-App
 
-A full-stack web application that helps users explore symptoms and receive relevant guidance through an AI-powered chatbot.
+A full-stack web application built with **HTML, Tailwind CSS and JavaScript**, featuring symptom information and an AI-powered chatbot that provides relevant guidance to users.
 
 The application combines symptom information from the NHS and MedlinePlus, uses Firebase Authentication for user accounts, and integrates the Groq API to generate conversational responses.
 
@@ -8,6 +8,7 @@ The application combines symptom information from the NHS and MedlinePlus, uses 
 [View the Symptom Checker](https://symptom-checker-karim-22562295.onrender.com)
 
 ## Features
+
 User registration and login with Firebase Authentication
 Browse symptom information
 Retrieves symptom names from NHS data
@@ -19,7 +20,9 @@ Input validation for user accounts
 Weighted symptom scoring system
 Provides guidance based on symptom severity
 Deployed as a live web application
-Technologies
+
+## Technologies
+
 HTML
 CSS / Tailwind CSS
 JavaScript
