@@ -52,7 +52,7 @@ The application also includes a weighted scoring system that evaluates user answ
 
 The score is used to help guide users towards an appropriate next action based on the information provided.
 
-**Authentication**
+**Authentication:**
 
 Firebase Authentication is used to provide:
 
