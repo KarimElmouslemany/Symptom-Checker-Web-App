@@ -7,7 +7,7 @@ The application combines symptom information from the NHS and MedlinePlus, uses 
 ## Live Application
 [View the Symptom Checker](https://symptom-checker-karim-22562295.onrender.com)
 
-## Features
+## ✨ Features
 
 User registration and login with Firebase Authentication
 Browse symptom information
@@ -21,7 +21,7 @@ Weighted symptom scoring system
 Provides guidance based on symptom severity
 Deployed as a live web application
 
-## Technologies
+## ⚙️ Technologies
 
 HTML
 CSS / Tailwind CSS
