@@ -65,15 +65,17 @@ The project gave me experience working with external APIs, backend development, 
 
 # Running the Project
 
-Clone the repository:
+#### Clone the repository:
 
 git clone <repository-url>
 
-Navigate into the project:
+#### Navigate into the project:
 
 cd Symptom-Checker-Web-App
 
-Install the dependencies  — open a terminal in the project folder and run:
+#### Getting the project to work:  
+
+1. Install the dependencies  — open a terminal in the project folder and run:
 
    npm install
 
