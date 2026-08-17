@@ -46,13 +46,13 @@ The chatbot backend is built with Express.js. When a user enters a health-relate
 
 The generated response is then returned to the frontend and displayed to the user.
 
-Symptom Scoring
+**Symptom Scoring:**
 
 The application also includes a weighted scoring system that evaluates user answers and symptom severity.
 
 The score is used to help guide users towards an appropriate next action based on the information provided.
 
-## Authentication
+**Authentication**
 
 Firebase Authentication is used to provide:
 
