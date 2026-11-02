@@ -1,7 +1,7 @@
 {
   "name": "symptom-checker-web-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A full-stack web application built with **HTML, Tailwind CSS and JavaScript**, featuring symptom information and an AI-powered chatbot that provides relevant guidance to users.",
   "main": "API.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,10 +21,21 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@xmldom/xmldom": "^0.8.11",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "groq-sdk": "^1.1.1",
-    "node-fetch": "^2.7.0"
-  }
+    "node-fetch": "^2.7.0",
+    "pg": "^8.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarimElmouslemany/Symptom-Checker-Web-App.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KarimElmouslemany/Symptom-Checker-Web-App/issues"
+  },
+  "homepage": "https://github.com/KarimElmouslemany/Symptom-Checker-Web-App#readme"
 }
