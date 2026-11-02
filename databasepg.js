@@ -4,7 +4,7 @@ const router = require("./AI_server");
 const bcrypt = require("bcrypt");
 
 const client = new Client({
-  host: "localhost",
+  connectionString: process.env.DATABASE_URL,
   user: process.env.DATABASE_USER,
   port: process.env.DATABASE_PORT,
   password: process.env.DATABASE_PASSWORD,
