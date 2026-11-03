@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build-css": "npx @tailwindcss/cli -i ./input.css -o ./tailwind.css",
-    "watch-css": "npx @tailwindcss/cli -i ./input.css -o ./tailwind.css --watch"
+    "build-css": "npx @tailwindcss/cli -i ./input.css -o ./Public/tailwind.css",
+    "watch-css": "npx @tailwindcss/cli -i ./input.css -o ./Public/tailwind.css --watch"
   },
   "keywords": [],
   "author": "",
