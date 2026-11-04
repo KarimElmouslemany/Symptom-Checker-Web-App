@@ -4,14 +4,10 @@ const app = express(); // creates a server
 app.use(express.json());
 const chatbot = require("./AI_server"); // import the ai_server file
 const database = require("./databasepg"); // import the database file
-app.post("/singup", (req, res) => {
-  console.log("this is from server " ,req.body.email);
-  console.log("this is from server " ,req.body.password);
-
-  res.json({
-    message: "Signup data received",
-  });
-  database.main_database(req.body.email,req.body.password,"creat");
+app.post("/singup", async (req, res) => {
+  message = await database.main_database(req.body.email,req.body.password,"creat");
+  console.log("this is inside server for singup" ,message.messageJSON);
+  res.json({message: message.messageJSON , account_created: message.accout_created})
 });
 app.post("/signin", async (req,res)=>{
   let something = null;
