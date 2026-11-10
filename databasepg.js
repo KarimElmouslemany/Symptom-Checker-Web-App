@@ -1,10 +1,17 @@
 require("dotenv").config();
 const { Client } = require("pg");
-const router = require("./AI_server");
 const bcrypt = require("bcrypt");
-
+let connection = null;
+if(process.env.NODE_ENV === "development"){
+  connection = process.env.DATABASE_URL_LOCAL;
+}else if(process.env.NODE_ENV === "production"){
+  connection =  process.env.DATABASE_URL;
+}else{
+  console.log("No database connection found");
+}
+console.log("NODE_ENV is: ", process.env.NODE_ENV);
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: connection,
   user: process.env.DATABASE_USER,
   port: process.env.DATABASE_PORT,
   password: process.env.DATABASE_PASSWORD,
@@ -12,7 +19,7 @@ const client = new Client({
 });
 
 client.connect();
-
+// console.log("this is clinet after connection: " ,client);
 async function main_database(email, password, type) {
   console.log("main database function trigred");
   let message = null;
